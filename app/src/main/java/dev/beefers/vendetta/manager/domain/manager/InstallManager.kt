@@ -28,7 +28,7 @@ class InstallManager(
             when {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> {
                     context.packageManager.getPackageInfo(
-                        prefs.packageName.ifBlank { "io.github.pyoncord.app" },
+                        prefs.packageName.ifBlank { "com.discord" },
                         PackageManager.PackageInfoFlags.of(
                             0L
                         )
@@ -37,7 +37,7 @@ class InstallManager(
 
                 else -> {
                     context.packageManager.getPackageInfo(
-                        prefs.packageName.ifBlank { "io.github.pyoncord.app" },
+                        prefs.packageName.ifBlank { "com.discord" },
                         0
                     )
                 }

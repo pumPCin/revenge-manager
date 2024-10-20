@@ -1,10 +1,10 @@
 <div align="center">
 
-  <img src="images/bunny_logo.png" alt="Bunny logo" width="200px" style="border-radius: 50%" />
+  <img src="images/revenge_logo.png" alt="Revenge logo" width="200px" style="border-radius: 50%" />
   
-  # Bunny Manager
+  # Revenge Manager
 
-  Easily install Bunny on Android
+  Easily install Revenge on Android
 
   [![Latest release](https://img.shields.io/github/v/release/pyoncord/BunnyManager?color=3AB8BA&display_name=release&label=Latest&style=for-the-badge)](https://github.com/pyoncord/BunnyManager/releases/latest)
   
@@ -59,6 +59,6 @@ Here are a few things you can do:
     
 License
 ---
-Bunny Manager is licensed under the Open Software License version 3.0
+Revenge Manager is licensed under the Open Software License version 3.0
 
 [![License: OSL v3](https://img.shields.io/badge/License-OSL%20v3-blue.svg?style=for-the-badge)](https://github.com/pyoncord/BunnyManager/blob/main/LICENSE)
