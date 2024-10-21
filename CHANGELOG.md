@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/pumPCin/revenge-manager/compare/v1.0.0...v1.1.0) (2024-10-21)
+
+
+### Bug Fixes
+
+* Appearance tab causing crashes ([bdff280](https://github.com/pumPCin/revenge-manager/commit/bdff280e29a6cb316ac8ad936621281c8c1f8c18))
+
+
+### Features
+
+* Rebrand to Revenge ([bdc40e9](https://github.com/pumPCin/revenge-manager/commit/bdc40e9db5de7e5b272727cbad7ff3f3c5b17ac3))
+* Rebrand to Revenge ([#7](https://github.com/pumPCin/revenge-manager/issues/7)) ([eb13258](https://github.com/pumPCin/revenge-manager/commit/eb1325834acc8129d3b61e4ef9ab4cfd7c665f3f))
+
 # 1.0.0 (2024-10-20)
 
 
