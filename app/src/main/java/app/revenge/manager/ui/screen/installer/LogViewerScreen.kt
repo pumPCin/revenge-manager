@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import app.revenge.manager.BuildConfig
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import app.revenge.manager.R
@@ -48,7 +48,7 @@ import app.revenge.manager.ui.widgets.installer.LogLine
 import app.revenge.manager.utils.DimenUtils
 import app.revenge.manager.utils.rememberFileSaveLauncher
 import app.revenge.manager.utils.thenIf
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,9 +58,9 @@ class LogViewerScreen(
 
     @Composable
     override fun Content() {
-        val prefs: PreferenceManager = get()
+        val prefs: PreferenceManager = koinInject()
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-        val viewModel: LogViewerViewModel = getScreenModel {
+        val viewModel: LogViewerViewModel = koinScreenModel {
             parametersOf(logs)
         }
 
@@ -152,7 +152,7 @@ class LogViewerScreen(
         expanded: Boolean,
         onDismiss: () -> Unit
     ) {
-        val prefs: PreferenceManager = get()
+        val prefs: PreferenceManager = koinInject()
 
         Box {
             DropdownMenu(

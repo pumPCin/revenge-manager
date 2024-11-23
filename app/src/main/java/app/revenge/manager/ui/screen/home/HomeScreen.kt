@@ -37,7 +37,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import app.revenge.manager.BuildConfig
@@ -54,7 +54,7 @@ import app.revenge.manager.ui.widgets.updater.UpdateDialog
 import app.revenge.manager.utils.Constants
 import app.revenge.manager.utils.DiscordVersion
 import app.revenge.manager.utils.navigate
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 class HomeScreen : Screen {
 
@@ -62,8 +62,8 @@ class HomeScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        val prefs: PreferenceManager = get()
-        val viewModel: HomeViewModel = getScreenModel()
+        val prefs: PreferenceManager = koinInject()
+        val viewModel: HomeViewModel = koinScreenModel()
 
         val currentVersion = remember {
             DiscordVersion.fromVersionCode(viewModel.installManager.current?.longVersionCode.toString())
@@ -220,7 +220,7 @@ class HomeScreen : Screen {
 
     @Composable
     private fun Actions() {
-        val viewModel: HomeViewModel = getScreenModel()
+        val viewModel: HomeViewModel = koinScreenModel()
         val navigator = LocalNavigator.currentOrThrow
 
         IconButton(onClick = { viewModel.getDiscordVersions() }) {

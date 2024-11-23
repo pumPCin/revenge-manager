@@ -20,14 +20,14 @@ import androidx.core.net.toUri
 import app.revenge.manager.R
 import app.revenge.manager.domain.manager.PreferenceManager
 import app.revenge.manager.ui.components.settings.SettingsChoiceDialog
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 @Composable
 fun DownloadFailedDialog(
     onTryAgainClick: () -> Unit,
     onDismiss: () -> Unit
 ) {
-    val prefs: PreferenceManager = get()
+    val prefs: PreferenceManager = koinInject()
     var mirrorPickerOpened by remember {
         mutableStateOf(false)
     }

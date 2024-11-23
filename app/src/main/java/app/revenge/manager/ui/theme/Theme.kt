@@ -11,13 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import app.revenge.manager.domain.manager.PreferenceManager
 import app.revenge.manager.domain.manager.Theme
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 @Composable
 fun RevengeManagerTheme(
     content: @Composable () -> Unit
 ) {
-    val prefs = get<PreferenceManager>()
+    val prefs = koinInject<PreferenceManager>()
     val dynamicColor = prefs.monet
     val darkTheme = when (prefs.theme) {
         Theme.SYSTEM -> isSystemInDarkTheme()

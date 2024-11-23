@@ -34,7 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.core.screen.ScreenKey
-import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import app.revenge.manager.R
@@ -46,7 +46,7 @@ import app.revenge.manager.ui.widgets.dialog.DownloadFailedDialog
 import app.revenge.manager.ui.widgets.installer.StepGroupCard
 import app.revenge.manager.utils.DiscordVersion
 import okhttp3.internal.toImmutableList
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
 import java.util.UUID
 
@@ -60,7 +60,7 @@ class InstallerScreen(
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
         val activity = LocalContext.current as? ComponentActivity
-        val viewModel: InstallerViewModel = getScreenModel {
+        val viewModel: InstallerViewModel = koinScreenModel {
             parametersOf(version)
         }
 
@@ -189,7 +189,7 @@ class InstallerScreen(
         onBackClick: () -> Unit,
         viewModel: InstallerViewModel
     ) {
-        val prefs: PreferenceManager = get()
+        val prefs: PreferenceManager = koinInject()
         val nav = LocalNavigator.currentOrThrow
 
         TopAppBar(

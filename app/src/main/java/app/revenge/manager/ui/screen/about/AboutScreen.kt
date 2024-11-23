@@ -55,7 +55,7 @@ import app.revenge.manager.utils.Constants
 import app.revenge.manager.utils.DimenUtils
 import app.revenge.manager.utils.getBitmap
 import app.revenge.manager.utils.showToast
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 class AboutScreen : Screen {
 
@@ -63,7 +63,7 @@ class AboutScreen : Screen {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
         val uriHandler = LocalUriHandler.current
-        val prefs: PreferenceManager = get()
+        val prefs: PreferenceManager = koinInject()
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
         val ctx = LocalContext.current
         val bitmap = remember {

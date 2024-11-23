@@ -22,7 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import app.revenge.manager.R
@@ -33,7 +33,7 @@ import app.revenge.manager.ui.components.settings.SettingsItemChoice
 import app.revenge.manager.ui.components.settings.SettingsSwitch
 import app.revenge.manager.ui.viewmodel.settings.AdvancedSettingsViewModel
 import app.revenge.manager.utils.DimenUtils
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 class AdvancedSettings: Screen {
 
@@ -41,8 +41,8 @@ class AdvancedSettings: Screen {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
         val ctx = LocalContext.current
-        val prefs: PreferenceManager = get()
-        val viewModel: AdvancedSettingsViewModel = getScreenModel()
+        val prefs: PreferenceManager = koinInject()
+        val viewModel: AdvancedSettingsViewModel = koinScreenModel()
         val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
         Scaffold(

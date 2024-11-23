@@ -33,14 +33,14 @@ import app.revenge.manager.domain.manager.PreferenceManager
 import app.revenge.manager.ui.components.settings.SettingsCategory
 import app.revenge.manager.ui.screen.about.AboutScreen
 import app.revenge.manager.utils.DimenUtils
-import org.koin.androidx.compose.get
+import org.koin.compose.koinInject
 
 class SettingsScreen : Screen {
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
-        val preferences: PreferenceManager = get()
+        val preferences: PreferenceManager = koinInject()
         val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
         Scaffold(
