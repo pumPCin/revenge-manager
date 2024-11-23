@@ -55,7 +55,7 @@ class DownloadManager(
             ?: throw IllegalStateException("DownloadManager service is not available")
 
         val downloadId = DownloadManager.Request(Uri.parse(url))
-            .setTitle("${BuildConfig.MOD_NAME} Manager")
+            .setTitle("Revenge Manager")
             .setDescription("Downloading ${out.name}...")
             .setDestinationUri(Uri.fromFile(out))
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)

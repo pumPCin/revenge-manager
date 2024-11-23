@@ -7,9 +7,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
-import app.revenge.manager.BuildConfig
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
+import app.revenge.manager.BuildConfig
 import app.revenge.manager.R
 import app.revenge.manager.domain.manager.InstallManager
 import app.revenge.manager.installer.step.Step
@@ -133,7 +133,7 @@ class InstallerViewModel(
             .setStream(uri)
             .apply {
                 intent.apply {
-                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 }
             }
             .startChooser()

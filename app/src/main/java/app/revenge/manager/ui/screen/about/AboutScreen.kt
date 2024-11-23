@@ -14,10 +14,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Divider
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
@@ -51,7 +51,10 @@ import app.revenge.manager.ui.screen.libraries.LibrariesScreen
 import app.revenge.manager.ui.widgets.about.LinkItem
 import app.revenge.manager.ui.widgets.about.ListItem
 import app.revenge.manager.ui.widgets.about.UserEntry
-import app.revenge.manager.utils.*
+import app.revenge.manager.utils.Constants
+import app.revenge.manager.utils.DimenUtils
+import app.revenge.manager.utils.getBitmap
+import app.revenge.manager.utils.showToast
 import org.koin.androidx.compose.get
 
 class AboutScreen : Screen {
@@ -173,10 +176,10 @@ class AboutScreen : Screen {
                                 }
                             )
                             if (i != Constants.TEAM_MEMBERS.lastIndex) {
-                                Divider(
+                                HorizontalDivider(
+                                    modifier = Modifier.padding(horizontal = 16.dp),
                                     thickness = 0.5.dp,
-                                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                                    modifier = Modifier.padding(horizontal = 16.dp)
+                                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
                                 )
                             }
                         }
@@ -235,20 +238,20 @@ class AboutScreen : Screen {
                         )
                         ListItem(
                             text = "rushii",
-                            subtext = "Developer of the installer, zip library, and a portions of patching",
+                            subtext = "Installer, zip library, and a portion of patching",
                             imageUrl = "https://github.com/rushiiMachine.png",
                             onClick = {
                                 uriHandler.openUri("https://github.com/rushiiMachine")
                             }
                         )
-                        Divider(
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 16.dp),
                             thickness = 0.5.dp,
-                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                            modifier = Modifier.padding(horizontal = 16.dp)
+                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
                         )
                         ListItem(
                             text = "Xinto",
-                            subtext = "Developer of the preference manager",
+                            subtext = "for the preference manager",
                             imageUrl = "https://github.com/X1nto.png",
                             onClick = {
                                 uriHandler.openUri("https://github.com/X1nto")
@@ -267,11 +270,11 @@ class AboutScreen : Screen {
                         //     text = stringResource(R.string.label_translate),
                         //     onClick = { uriHandler.openUri("https://crowdin.com/project/vendetta-manager") }
                         // )
-                        Divider(
-                            thickness = 0.5.dp,
-                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                            modifier = Modifier.padding(horizontal = 16.dp)
-                        )
+                        // HorizontalDivider(
+                        //     modifier = Modifier.padding(horizontal = 16.dp),
+                        //     thickness = 0.5.dp,
+                        //     color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+                        // )
                         ListItem(
                             text = stringResource(R.string.title_os_libraries),
                             onClick = { navigator.push(LibrariesScreen()) }
@@ -295,7 +298,7 @@ class AboutScreen : Screen {
             navigationIcon = {
                 IconButton(onClick = { navigator.pop() }) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.action_back)
                     )
                 }

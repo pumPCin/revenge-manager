@@ -6,6 +6,7 @@ import app.revenge.manager.installer.step.Step
 import app.revenge.manager.installer.step.StepGroup
 import app.revenge.manager.installer.step.StepRunner
 import app.revenge.manager.installer.step.download.DownloadModStep
+import app.revenge.manager.installer.util.Patcher
 import java.io.File
 
 /**
@@ -30,7 +31,7 @@ class AddModStep(
             ?.takeIf { it.isNotEmpty() }
             ?: throw Error("Missing APKs from signing step")
 
-        app.revenge.manager.installer.util.Patcher.patch(
+        Patcher.patch(
             runner.logger,
             outputDir = lspatchedDir,
             apkPaths = files.map { it.absolutePath },

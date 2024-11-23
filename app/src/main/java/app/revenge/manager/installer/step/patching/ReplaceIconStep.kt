@@ -10,12 +10,12 @@ import app.revenge.manager.installer.step.Step
 import app.revenge.manager.installer.step.StepGroup
 import app.revenge.manager.installer.step.StepRunner
 import app.revenge.manager.installer.step.download.DownloadBaseStep
-import app.revenge.manager.installer.utils.ArscUtil
-import app.revenge.manager.installer.utils.ArscUtil.addColorResource
-import app.revenge.manager.installer.utils.ArscUtil.getMainArscChunk
-import app.revenge.manager.installer.utils.ArscUtil.getPackageChunk
-import app.revenge.manager.installer.utils.ArscUtil.getResourceFileName
-import app.revenge.manager.installer.utils.AxmlUtil
+import app.revenge.manager.installer.util.ArscUtil
+import app.revenge.manager.installer.util.ArscUtil.addColorResource
+import app.revenge.manager.installer.util.ArscUtil.getMainArscChunk
+import app.revenge.manager.installer.util.ArscUtil.getPackageChunk
+import app.revenge.manager.installer.util.ArscUtil.getResourceFileName
+import app.revenge.manager.installer.util.AxmlUtil
 import app.revenge.manager.utils.DiscordVersion
 import org.koin.core.component.inject
 

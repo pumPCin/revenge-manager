@@ -11,9 +11,9 @@ import androidx.compose.runtime.setValue
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import app.revenge.manager.BuildConfig
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
+import app.revenge.manager.BuildConfig
 import app.revenge.manager.domain.manager.DownloadManager
 import app.revenge.manager.domain.manager.InstallManager
 import app.revenge.manager.domain.manager.InstallMethod
@@ -91,7 +91,7 @@ class HomeViewModel(
 
     private fun autoClearCache() {
         val currentVersion =
-            DiscordVersion.fromVersionCode(installManager.current?.versionCode.toString()) ?: return
+            DiscordVersion.fromVersionCode(installManager.current?.longVersionCode.toString()) ?: return
         val latestVersion = when {
             prefs.discordVersion.isBlank() -> discordVersions?.get(prefs.channel)
             else -> DiscordVersion.fromVersionCode(prefs.discordVersion)

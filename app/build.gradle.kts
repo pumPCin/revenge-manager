@@ -4,19 +4,19 @@ plugins {
     alias(libs.plugins.aboutlibraries)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.compose.compiler)
     publishing
 }
 
 android {
     namespace = "app.revenge.manager"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "app.revenge.manager"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionName = version.toString()
         versionCode = versionName!!.split("-").first().replace(".", "").toInt()
 
@@ -74,7 +74,8 @@ android {
         freeCompilerArgs += listOf(
             "-Xcontext-receivers",
             "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${buildDir.resolve("report").absolutePath}",
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" +
+                    layout.buildDirectory.get().asFile.resolve("report").absolutePath,
         )
     }
 
@@ -177,7 +178,7 @@ fun exec(vararg command: String): String? {
             isIgnoreExitValue = true
         }
 
-        if (errout.size() > 0)
+        if(errout.size() > 0)
             throw Error(errout.toString(Charsets.UTF_8))
 
         stdout.toString(Charsets.UTF_8).trim()
@@ -186,9 +187,6 @@ fun exec(vararg command: String): String? {
         null
     }
 }
-
-// Used by gradle-semantic-release-plugin.
-// Tracking: https://github.com/KengoTODA/gradle-semantic-release-plugin/issues/435.
 tasks.publish {
     dependsOn("assembleRelease")
 }

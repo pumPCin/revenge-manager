@@ -12,9 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Button
@@ -36,11 +36,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.collectAsLazyPagingItems
-import app.revenge.manager.BuildConfig
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import app.revenge.manager.BuildConfig
 import app.revenge.manager.R
 import app.revenge.manager.domain.manager.PreferenceManager
 import app.revenge.manager.ui.components.SegmentedButton
@@ -66,7 +66,7 @@ class HomeScreen : Screen {
         val viewModel: HomeViewModel = getScreenModel()
 
         val currentVersion = remember {
-            DiscordVersion.fromVersionCode(viewModel.installManager.current?.versionCode.toString())
+            DiscordVersion.fromVersionCode(viewModel.installManager.current?.longVersionCode.toString())
         }
 
         val latestVersion =
@@ -180,7 +180,7 @@ class HomeScreen : Screen {
                         modifier = Modifier.clip(RoundedCornerShape(16.dp))
                     ) {
                         SegmentedButton(
-                            icon = Icons.Filled.OpenInNew,
+                            icon = Icons.AutoMirrored.Filled.OpenInNew,
                             text = stringResource(R.string.action_launch),
                             onClick = { viewModel.launchMod() }
                         )

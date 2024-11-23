@@ -1,5 +1,5 @@
 // https://github.com/Aliucord/Manager/blob/main/app/src/main/kotlin/com/aliucord/manager/installer/util/ArscUtil.kt
-package app.revenge.manager.installer.utils
+package app.revenge.manager.installer.util
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb

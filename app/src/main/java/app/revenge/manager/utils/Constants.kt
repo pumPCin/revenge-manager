@@ -4,6 +4,7 @@ import android.os.Environment
 import app.revenge.manager.BuildConfig
 
 object Constants {
+
     val TEAM_MEMBERS = listOf(
         TeamMember("Palm", "Lead developer", "palmdevs"),
         TeamMember("oSumAtrIX", "Developer", "osumatrix"),
@@ -16,6 +17,8 @@ object Constants {
     val MOD_DIR = Environment.getExternalStorageDirectory().resolve(BuildConfig.MOD_NAME)
 
     val DUMMY_VERSION = DiscordVersion(1, 0, DiscordVersion.Type.STABLE)
+
+    val START_TIME = System.currentTimeMillis()
 }
 
 object Intents {
